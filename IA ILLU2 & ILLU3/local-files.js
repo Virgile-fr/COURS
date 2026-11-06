@@ -4,8 +4,10 @@
 
   const ROOT_NAME = global.COURSE_CONFIG?.className || "Cours";
   const IMAGE_TYPES = /\.(png|jpe?g|gif|webp|svg|avif)$/i;
+  const DOWNLOAD_TYPES = /\.zip$/i;
   const normalize = value => value.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
   const excluded = name => name.startsWith(".") || ["avant de commencer", "deroulle", "deroule"].includes(normalize(name).replace(/[\s_-]+/g, " ").trim());
+  const supportPath = path => normalize(path.split("/")[0]) === "ressources";
   const stem = name => name.replace(/\.[^.]+$/, "");
   const compareText = (a, b) => normalize(a).localeCompare(normalize(b), "fr");
   function slideOrder(a, b) {
@@ -19,7 +21,7 @@
 
   function groupEntries(entries) {
     const groups = new Map();
-    const accepted = entries.filter(entry => !entry.path.split("/").some(excluded));
+    const accepted = entries.filter(entry => !supportPath(entry.path) && !entry.path.split("/").some(excluded));
     for (const entry of accepted) {
       const parts = entry.path.split("/");
       const name = parts.pop();
@@ -110,6 +112,22 @@
     }
   }
 
+  async function resolveDownloads(doc, markdownPath, entries, getUrl) {
+    const base = new URL(markdownPath.split("/").map(encodeURIComponent).join("/"), "https://course-files.invalid/");
+    for (const link of doc.querySelectorAll("a[href]")) {
+      const href = link.getAttribute("href");
+      if (!href || /^(?:[a-z][a-z\d+.-]*:|\/|#)/i.test(href)) continue;
+      let path;
+      try { path = decodeURIComponent(new URL(href, base).pathname.slice(1)); }
+      catch { continue; }
+      if (!DOWNLOAD_TYPES.test(path) || path.split("/").some(excluded)) continue;
+      const entry = entries.get(path);
+      if (!entry) continue;
+      link.setAttribute("href", await getUrl(entry));
+      link.setAttribute("download", path.split("/").at(-1));
+    }
+  }
+
   class Source {
     constructor() {
       this.directory = null;
@@ -162,15 +180,16 @@
     }
 
     async listFiles() {
-      if (this.imported) return this.imported;
+      if (this.imported) return this.imported.filter(entry => !supportPath(entry.path));
       if (!this.directory) return [];
       const entries = [];
       const walk = async (directory, parent = "") => {
         for await (const [name, handle] of directory.entries()) {
           if (excluded(name)) continue;
           const path = parent + name;
+          if (supportPath(path)) continue;
           if (handle.kind === "directory") await walk(handle, path + "/");
-          else if (/\.md$/i.test(name) || IMAGE_TYPES.test(name)) entries.push({ path, handle });
+          else if (/\.md$/i.test(name) || IMAGE_TYPES.test(name) || DOWNLOAD_TYPES.test(name)) entries.push({ path, handle });
         }
       };
       await walk(this.directory);
@@ -179,10 +198,22 @@
 
     async read() {
       const sequence = this.sequence;
-      const groups = groupEntries(await this.listFiles());
+      const entries = await this.listFiles();
+      const groups = groupEntries(entries);
+      const downloads = new Map(entries.filter(entry => DOWNLOAD_TYPES.test(entry.path))
+        .map(entry => [entry.path, entry]));
       const used = new Set();
       const newUrls = new Map();
       const decks = [];
+      const assetUrl = async entry => {
+        if (this.remote && entry.url) return entry.url;
+        const file = entry.file || await entry.handle.getFile();
+        const key = `${sequence}:${entry.path}:${file.lastModified}:${file.size}`;
+        used.add(key);
+        let url = this.urls.get(key) || newUrls.get(key);
+        if (!url) { url = URL.createObjectURL(file); newUrls.set(key, url); }
+        return url;
+      };
       try {
         for (const group of groups) {
           const slides = [];
@@ -192,6 +223,7 @@
             // Le HTML du Markdown est nettoyé avant toute insertion dans la page.
             const document = new DOMParser().parseFromString(global.DOMPurify.sanitize(global.marked.parse(content)), "text/html");
             annotatePrompts(document);
+            await resolveDownloads(document, entry.path, downloads, assetUrl);
             const heading = document.querySelector("h1");
             const title = heading?.textContent || (entry.galleryImages ? `Galerie ${stem(entry.name)}` : stem(entry.name));
             heading?.remove();
@@ -207,16 +239,7 @@
             });
             const images = [];
             for (const image of matching) {
-              if (this.remote && image.url) {
-                images.push({ url: image.url, name: image.path.split("/").at(-1) });
-                continue;
-              }
-              const imageFile = image.file || await image.handle.getFile();
-              const key = `${sequence}:${image.path}:${imageFile.lastModified}:${imageFile.size}`;
-              used.add(key);
-              let url = this.urls.get(key) || newUrls.get(key);
-              if (!url) { url = URL.createObjectURL(imageFile); newUrls.set(key, url); }
-              images.push({ url, name: imageFile.name });
+              images.push({ url: await assetUrl(image), name: image.path.split("/").at(-1) });
             }
             slides.push({ id, filename: entry.name, title, html: document.body.innerHTML.trim(), images,
               kind: entry.galleryImages ? "gallery" : "slide" });
@@ -236,5 +259,5 @@
     }
   }
 
-  global.CourseFiles = { Source, groupEntries, slideOrder, annotatePrompts };
+  global.CourseFiles = { Source, groupEntries, slideOrder, annotatePrompts, resolveDownloads };
 })(globalThis);

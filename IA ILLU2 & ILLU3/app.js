@@ -301,9 +301,11 @@ function render() {
   for (const link of $("text-flow").querySelectorAll('a[href^="http"]')) {
     link.target = "_blank"; link.rel = "noopener noreferrer";
   }
+  const isIntro = Boolean($("text-flow").querySelector(".course-intro, .part-intro"));
+  const isPartIntro = Boolean($("text-flow").querySelector(".part-intro"));
   const isGallery = slide.kind === "gallery";
   const hasImage = !isGallery && imagesVisible && slide.images.length > 0;
-  $("slide").className = `${isGallery ? "gallery-slide" : hasImage ? "with-image" : "text-only"}${/^0+$/.test(slide.id) && hasImage ? " cover" : ""}${imagesVisible ? "" : " images-hidden"}`;
+  $("slide").className = `${isGallery ? "gallery-slide" : hasImage ? "with-image" : "text-only"}${/^0+$/.test(slide.id) && hasImage ? " cover" : ""}${imagesVisible ? "" : " images-hidden"}${isIntro ? " intro-slide" : ""}${isPartIntro ? " part-slide" : ""}`;
   $("visual").hidden = !hasImage;
   $("slide-body").hidden = isGallery && !slide.html;
   $("gallery").hidden = !isGallery || !imagesVisible;
