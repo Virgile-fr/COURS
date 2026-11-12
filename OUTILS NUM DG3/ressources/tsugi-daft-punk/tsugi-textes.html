@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Chemin de fer et contenu des articles — Hors-série Daft Punk</title>
+<style>
+    :root { color-scheme: light; }
+    body { --spacing: 24px; max-width: 800px; margin: 0 auto; padding: var(--spacing) 16px; font: 16px/1.5 system-ui, sans-serif; color: #222; }
+    h1 { margin: 0; font-size: 1.5rem; }
+    .flatplan { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-block: var(--spacing); }
+    .flatplan-spread { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .flatplan-page { position: relative; display: grid; align-content: center; gap: 6px; min-height: 156px; aspect-ratio: 3 / 4; padding: 12px 8px 26px; box-sizing: border-box; border: 1px solid #222; color: inherit; text-align: center; text-decoration: none; font-size: .875rem; line-height: 1.25; overflow-wrap: anywhere; }
+    .flatplan-title { font-weight: 650; }
+    .flatplan-count { font-size: .75rem; color: #555; }
+    .flatplan-page + .flatplan-page { border-left: 0; }
+    .flatplan-page .folio { position: absolute; bottom: 6px; left: 8px; }
+    .flatplan-page:last-child .folio { left: auto; right: 8px; }
+    .folio { font-size: .8rem; font-variant-numeric: tabular-nums; color: #555; }
+    .flatplan-cover { background: #eee; }
+    .flatplan-page:hover, .flatplan-page:focus-visible { background: #f4f4f4; }
+    .flatplan-page:focus-visible { outline: 2px solid #222; outline-offset: -3px; }
+    main { display: grid; gap: var(--spacing); }
+    @media (max-width: 620px) { .flatplan { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
+    @media (max-width: 420px) { .flatplan { grid-template-columns: minmax(0, 1fr); } }
+    main section {
+      padding: 16px;
+      border: 1px solid #222;
+      scroll-margin-top: var(--spacing);
+    }
+    main h2 { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 0 0 .75em; font-size: 1.15rem; }
+    main h2 .folio { flex-shrink: 0; font-weight: 400; }
+    .page-visuals { margin-bottom: 1em; padding: .65em .8em; background: #f4f4f4; font-size: .9rem; }
+    .page-visuals h3 { margin: 0; font-size: inherit; }
+    .page-visuals ul { margin: .35em 0 0; padding-left: 1.25em; }
+    .page-visuals p { margin: .35em 0 0; }
+    .page-visuals li + li { margin-top: .25em; }
+    ol { list-style: none; padding: 0; margin: 0; }
+    .block { border-top: 1px solid #ddd; padding: .65em 0; }
+    .label { display: flex; flex-wrap: wrap; align-items: baseline; gap: .25em .65em; font-size: .8rem; }
+    .badge { font-weight: 700; }
+    .note { color: #555; }
+    .feedback { color: #245b37; }
+    .copy-block { display: block; width: 100%; padding: .15em 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: copy; }
+    .copy-block:hover { background: #f4f4f4; }
+    .copy-block:focus-visible { outline: 2px solid #222; outline-offset: 2px; }
+    .text { user-select: text; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  </style>
+</head>
+<body>
+<header class="masthead">
+<h1>Chemin de fer et contenu des articles</h1>
+<nav class="flatplan" aria-label="Chemin de fer du magazine">
+<div class="flatplan-spread">
+<span aria-hidden="true"></span>
+<a class="flatplan-page flatplan-cover" href="#page-01"><span class="flatplan-title">Couverture</span><span class="flatplan-count">(au moins 1 visuel)</span><span class="folio" aria-hidden="true">1</span></a>
+</div>
+<div class="flatplan-spread">
+<a class="flatplan-page" href="#page-02"><span class="flatplan-title">Édito</span><span class="folio" aria-hidden="true">2</span></a>
+<a class="flatplan-page" href="#page-03"><span class="flatplan-title">Sommaire</span><span class="folio" aria-hidden="true">3</span></a>
+</div>
+<div class="flatplan-spread">
+<a class="flatplan-page" href="#page-04"><span class="flatplan-title">L’impasse du rock</span><span class="flatplan-count">(1 à 2 visuels)</span><span class="folio" aria-hidden="true">4</span></a>
+<a class="flatplan-page" href="#page-05"><span class="flatplan-title">La dernière photo et repères</span><span class="flatplan-count">(1 à 2 visuels en option)</span><span class="folio" aria-hidden="true">5</span></a>
+</div>
+<div class="flatplan-spread">
+<a class="flatplan-page" href="#page-06"><span class="flatplan-title">Chambre avec vue (1/2)</span><span class="flatplan-count">(1 à 3 visuels)</span><span class="folio" aria-hidden="true">6</span></a>
+<a class="flatplan-page" href="#page-07"><span class="flatplan-title">Homework (2/2)</span><span class="flatplan-count">(1 à 3 visuels)</span><span class="folio" aria-hidden="true">7</span></a>
+</div>
+<div class="flatplan-spread">
+<a class="flatplan-page" href="#page-08"><span class="flatplan-title">Quarante hublots et deux nuits blanches</span><span class="flatplan-count">(2 à 3 visuels)</span><span class="folio" aria-hidden="true">8</span></a>
+<a class="flatplan-page" href="#page-09"><span class="flatplan-title">Les robots et Discovery</span><span class="flatplan-count">(1 à 3 visuels)</span><span class="folio" aria-hidden="true">9</span></a>
+</div>
+<div class="flatplan-spread">
+<a class="flatplan-page" href="#page-10"><span class="flatplan-title">Ce qu’une pyramide a changé</span><span class="flatplan-count">(1 à 2 visuels)</span><span class="folio" aria-hidden="true">10</span></a>
+<a class="flatplan-page" href="#page-11"><span class="flatplan-title">250 caméras dans le public</span><span class="flatplan-count">(2 à 3 visuels)</span><span class="folio" aria-hidden="true">11</span></a>
+</div>
+<div class="flatplan-spread">
+<a class="flatplan-page" href="#page-12"><span class="flatplan-title">Pharrell Williams</span><span class="flatplan-count">(1 à 2 visuels)</span><span class="folio" aria-hidden="true">12</span></a>
+<a class="flatplan-page" href="#page-13"><span class="flatplan-title">Giorgio Moroder</span><span class="flatplan-count">(1 à 2 visuels)</span><span class="folio" aria-hidden="true">13</span></a>
+</div>
+<div class="flatplan-spread">
+<a class="flatplan-page" href="#page-14"><span class="flatplan-title">Le sample de « Fresh »</span><span class="flatplan-count">(1 à 3 visuels)</span><span class="folio" aria-hidden="true">14</span></a>
+<a class="flatplan-page" href="#page-15"><span class="flatplan-title">À écouter</span><span class="flatplan-count">(visuels en option)</span><span class="folio" aria-hidden="true">15</span></a>
+</div>
+<div class="flatplan-spread">
+<a class="flatplan-page flatplan-cover" href="#page-16"><span class="flatplan-title">Quatrième de couverture</span><span class="flatplan-count">(au moins 1 visuel)</span><span class="folio" aria-hidden="true">16</span></a>
+<span aria-hidden="true"></span>
+</div>
+</nav>
+</header>
+<main class="wrap">
+<section aria-labelledby="title-01" id="page-01">
+<h2 id="title-01">Couverture<span class="folio">p. 1</span></h2>
+<div class="page-visuals"><h3>Visuel libre</h3><p>Choisissez le visuel de couverture et son traitement graphique.</p></div>
+<ol>
+<li class="block"><div class="label"><span class="badge">Bandeau de couverture</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">TSUGI · HORS-SÉRIE</span></button></li>
+<li class="block"><div class="label"><span class="badge">Titre de couverture</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Daft Punk</span></button></li>
+<li class="block"><div class="label"><span class="badge">Sous-titre de couverture</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">1993 — 2021 : Histoire d’un duo</span></button></li>
+<li class="block"><div class="label"><span class="badge">Accroche de couverture</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Quatre albums studio en vingt-huit ans. Retour sur le parcours de deux producteurs parisiens qui ont imposé leur propre tempo à l’industrie du disque.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Accroche de couverture</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Dossier · Homework raconté par ceux qui l’ont vu naître · Discovery : le pari de la pop · Coachella 2006 : la nuit où la pyramide s’est allumée · Enquête : la longue traque des samples oubliés</span></button></li>
+</ol>
+</section>
+
+<section aria-labelledby="title-02" id="page-02">
+<h2 id="title-02">Édito<span class="folio">p. 2</span></h2>
+<div class="page-visuals"><h3>Visuels possibles</h3><ul>
+<li>Les deux silhouettes dans le désert, dans la vidéo « Epilogue », ou un petit dessin des casques.</li>
+</ul></div>
+<ol>
+<li class="block"><div class="label"><span class="badge">Titre d’article</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Savoir disparaître</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Le 22 février 2021, Thomas Bangalter et Guy-Manuel de Homem-Christo ont mis fin à vingt-huit ans de carrière commune avec une simple vidéo postée en ligne. Le film durait huit minutes, repris de leur long-métrage Electroma tourné quinze ans plus tôt. On y voyait l’un des deux robots s’autodétruire en plein désert, suivi d’un carton indiquant « 1993-2021 ». Aucun communiqué de presse n’a suivi pour expliquer leur décision.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Ce départ silencieux résume bien la trajectoire d’un groupe qui a toujours préféré s’effacer derrière ses disques. Dès le milieu des années 1990, les deux musiciens ont compris que l’anonymat leur offrait une liberté rare : celle de prendre leur temps et de changer de style à chaque album sans avoir à se justifier sur les plateaux de télévision. De la chambre parisienne où a été bricolé Homework jusqu’aux grands studios californiens de Random Access Memories, ce hors-série revient sur leur façon de travailler, racontée par les photographes, les techniciens et les musiciens qui ont croisé leur route.</span></button></li>
+</ol>
+</section>
+
+<section aria-labelledby="title-03" id="page-03">
+<h2 id="title-03">Sommaire<span class="folio">p. 3</span></h2>
+<ol>
+<li class="block"><div class="label"><span class="badge">Titre de rubrique</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Sommaire</span></button></li>
+<li class="block"><div class="label"><span class="badge">Entrée de sommaire</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">04 · L’impasse du rock</span></button></li>
+<li class="block"><div class="label"><span class="badge">Descriptif de sommaire</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">En 1993, un hebdomadaire anglais éreinte le premier 45-tours de trois lycéens parisiens. Deux d’entre eux rangent leurs guitares et découvrent la techno.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Entrée de sommaire</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">06 · Chambre avec vue</span></button></li>
+<li class="block"><div class="label"><span class="badge">Descriptif de sommaire</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Comment s’est construit Homework entre 1995 et 1997, des premiers vinyles pressés en Écosse jusqu’à la signature d’un contrat inédit chez Virgin.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Entrée de sommaire</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">08 · Quarante hublots et deux nuits blanches</span></button></li>
+<li class="block"><div class="label"><span class="badge">Descriptif de sommaire</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">La fabrication du clip d’« Around the World » par Michel Gondry, suivie quatre ans plus tard par la naissance des costumes de robots pour Discovery.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Entrée de sommaire</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">10 · Ce qu’une pyramide a changé</span></button></li>
+<li class="block"><div class="label"><span class="badge">Descriptif de sommaire</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Au printemps 2006, un an après l’accueil glacial réservé à Human After All, le groupe dévoile sa pyramide lumineuse dans le désert californien.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Entrée de sommaire</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">12 · Pharrell pensait enregistrer un brouillon</span></button></li>
+<li class="block"><div class="label"><span class="badge">Descriptif de sommaire</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Pour Random Access Memories, le duo délaisse la programmation sur ordinateur et invite à Paris et Los Angeles les figures historiques du disco et du funk.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Entrée de sommaire</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">14 · Vingt ans pour retrouver deux secondes</span></button></li>
+<li class="block"><div class="label"><span class="badge">Descriptif de sommaire</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">L’histoire des vieux vinyles découpés pour composer leurs premiers morceaux, et l’énigme de la boucle de « Fresh », résolue vingt ans après sa sortie.</span></button></li>
+</ol>
+</section>
+
+<section aria-labelledby="title-04" id="page-04">
+<h2 id="title-04">L’impasse du rock<span class="folio">p. 4</span></h2>
+<div class="page-visuals"><h3>Visuels possibles</h3><ul>
+<li>La photo de Cyril Villemain à L’An-Fer, à Dijon, en novembre 1996. On y voit le duo à visage découvert derrière les platines.</li>
+<li>La critique de Dave Jennings dans <em>Melody Maker</em>, où apparaît « a daft punky thrash », ou le disque de Darlin’ sur <em>Shimmies In Super 8</em>.</li>
+<li>Une photo ou un dessin du Roland Juno-106.</li>
+</ul></div>
+<ol>
+<li class="block"><div class="label"><span class="badge">Titre d’article</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">L’impasse du rock</span></button></li>
+<li class="block"><div class="label"><span class="badge">Chapô</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Avant d’acheter leurs premières boîtes à rythmes, Thomas Bangalter et Guy-Manuel de Homem-Christo ont tenté leur chance avec des guitares électriques. Il a suffi d’une critique anglaise de trois lignes pour leur faire changer de voie.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Thomas Bangalter et Guy-Manuel de Homem-Christo se rencontrent en 1987 au lycée Carnot, dans le 17e arrondissement de Paris. En 1992, ils montent un groupe de rock baptisé Darlin’ avec leur ami guitariste Laurent Brancowitz. Le trio enregistre deux morceaux assez bruts qui finissent par atterrir à Londres chez Duophonic, le petit label fondé par les membres du groupe Stereolab. Le disque sort au printemps 1993 sur une compilation confidentielle.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">En mai, le journaliste Dave Jennings écoute le vinyle pour l’hebdomadaire britannique Melody Maker et qualifie la musique des jeunes Français de « daft punky thrash » (un brouhaha punk idiot). À Paris, la critique fait sourire les intéressés, qui reconnaissent volontiers les limites de leur groupe. Laurent Brancowitz s’en va bientôt fonder Phoenix avec son frère. Ses deux camarades, eux, viennent de découvrir un tout autre univers en allant pour la première fois dans une fête techno clandestine organisée au dernier étage du Centre Pompidou.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Ce soir-là, ils réalisent surtout qu’on peut produire de la musique seul chez soi, sans payer de studio d’enregistrement. Avec un clavier Roland Juno-106 d’occasion, une boîte à rythmes et un échantillonneur achetés grâce à l’argent de leurs dix-huit ans, ils s’installent dans la chambre de Thomas Bangalter, rue de la Tour-des-Dames. En souvenir de leur premier échec, ils reprennent les deux mots du journaliste anglais pour baptiser leur duo.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Légende</span><span class="note">Photo de Dijon</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Thomas Bangalter et Guy-Manuel de Homem-Christo derrière les platines du club L’An-Fer, à Dijon, en novembre 1996.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Crédit visuel</span><span class="note">Photo de Dijon</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Cyril Villemain.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Légende</span><span class="note">Optionnelle : Melody Maker / Darlin’</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">En mai 1993, la chronique du Melody Maker enterre le premier 45-tours du trio rock Darlin’ et donne involontairement son nom à Daft Punk.</span></button></li>
+</ol>
+</section>
+
+<section aria-labelledby="title-05" id="page-05">
+<h2 id="title-05">La dernière photo et repères<span class="folio">p. 5</span></h2>
+<div class="page-visuals"><h3>Visuels possibles</h3><ul>
+<li>La coupure du <em>Bien Public</em> de novembre 1996, si vous la retrouvez.</li>
+<li>La pochette ou l’étiquette du premier maxi <em>The New Wave</em>, sorti chez Soma en 1994.</li>
+<li>Une photo de presse de 1995 ou 1996 où le duo se cache le visage.</li>
+</ul></div>
+<ol>
+<li class="block"><div class="label"><span class="badge">Intertitre</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">La dernière photo à visage découvert</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">En septembre 1993, lors d’une rave organisée sur le parking d’Eurodisney, les deux amis remettent une cassette démo à Stuart Macmillan, cofondateur du label écossais Soma. Six mois plus tard, le label presse mille exemplaires de leur premier maxi, The New Wave. À l’époque, les deux Parisiens ne portent pas encore de masques, mais ils partagent déjà l’état d’esprit des producteurs de techno américaine : la musique doit passer avant la tête de celui qui la fait.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Cet anonymat va vite devenir une consigne stricte. En novembre 1996, deux mois avant la sortie de leur premier album, le duo mixe vers trois heures du matin à L’An-Fer, à Dijon. Cyril Villemain, un photographe de 23 ans qui travaille pour le quotidien régional Le Bien Public, monte dans la cabine et prend une douzaine de clichés en orientant son flash vers le plafond. Lorsqu’il redescend, le nouveau manager du groupe, Pedro Winter, lui demande de ne pas publier les images en lui expliquant que les musiciens ne souhaitent plus montrer leur visage. Le jeune pigiste tient bon : s’il ne livre pas sa photo au journal, il ne sera pas payé. L’échange se termine autour d’un verre et le cliché paraît quelques jours plus tard dans les pages locales. Ce sera l’une des dernières fois qu’un photographe de presse les captera sans déguisement.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Légende</span><span class="note">Coupure, en option</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Le cliché pris à L’An-Fer paraît dans Le Bien Public quelques jours après la soirée de novembre 1996.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Titre d’encadré</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Cinq repères</span></button></li>
+<li class="block"><div class="label"><span class="badge">Entrée de chronologie</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">1993 Fin du trio rock Darlin’ et enregistrement des premières maquettes électroniques à Paris.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Entrée de chronologie</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">1995 Sortie du maxi « Da Funk » chez Soma en mai, suivi d’un concert remarqué aux Trans Musicales de Rennes en décembre.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Entrée de chronologie</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">1997 Parution de Homework en janvier chez Virgin.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Entrée de chronologie</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">2001 Sortie de Discovery et présentation officielle des casques de robots dans la presse britannique.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Entrée de chronologie</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">2013 Sortie en mai de Random Access Memories, dernier album studio du groupe avant sa séparation en 2021.</span></button></li>
+</ol>
+</section>
+
+<section aria-labelledby="title-06" id="page-06">
+<h2 id="title-06">Chambre avec vue (Les débuts de Homework, 1/2)<span class="folio">p. 6</span></h2>
+<div class="page-visuals"><h3>Visuels possibles</h3><ul>
+<li>La photo d’Éric Pérez à l’Ubu, à Rennes, le 2 décembre 1995.</li>
+<li>Le feuillet « French! Teen! Techno! » de Soma, ou une affiche des Trans Musicales de 1995.</li>
+<li>Une photo ou un dessin du Roland TB-303 ou de la boîte à rythmes TR-909.</li>
+</ul></div>
+<ol>
+<li class="block"><div class="label"><span class="badge">Titre d’article</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Chambre avec vue</span></button></li>
+<li class="block"><div class="label"><span class="badge">Chapô</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Avant de devenir un double album vendu à deux millions d’exemplaires, Homework a d’abord été une suite de maxis enregistrés sur le tapis d’une chambre parisienne. Retour sur l’année 1995, où tout a basculé entre Glasgow et Rennes.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Au printemps 1995, après l’accueil discret de leur premier disque, les deux musiciens envoient une nouvelle maquette en Écosse au label Soma. Le morceau est lent, construit autour d’une grosse caisse lourde inspirée du hip-hop californien et d’une mélodie saturée sortie d’un vieux synthétiseur Roland TB-303. Dans les bureaux de Glasgow, l’équipe surnomme aussitôt cette ébauche « le titre lent et funky » et insiste pour que le duo la termine rapidement. « Da Funk » sort en vinyle au mois de mai, accompagné sur l’autre face par « Rollin’ &amp; Scratchin’ », un morceau très dur et répétitif pensé pour la fin de la nuit.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Le disque ne se vend d’abord qu’à 2 000 exemplaires, mais il circule vite dans les sacoches des DJs européens. En Angleterre, les Chemical Brothers le jouent chaque week-end dans leurs soirées. En France, le programmateur des Trans Musicales de Rennes, Jean-Louis Brossard, découvre le maxi et décide d’inviter le groupe à jouer au club L’Ubu le samedi 2 décembre 1995.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Intertitre</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Un aller-retour en pleine grève</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Leur venue en Bretagne faillit pourtant être annulée à la dernière minute. En cette fin d’année 1995, les grandes grèves contre le plan Juppé bloquent les trains dans tout le pays. Le vendredi précédant le concert, Brossard doit prévenir la presse que les deux Parisiens risquent de manquer à l’appel. C’est finalement Thomas Bangalter, qui vient tout juste d’obtenir son permis de conduire, qui charge les synthétiseurs et les boîtes à rythmes dans une voiture pour rejoindre l’aéroport de Roissy et embarquer sur un vol vers Rennes. Le samedi soir, le concert à l’Ubu fait salle comble devant la plupart des maisons de disques parisiennes venues les observer.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Légende</span><span class="note">Photo de Rennes</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Daft Punk sur la scène de l’Ubu, pendant les Trans Musicales de Rennes, le 2 décembre 1995.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Crédit visuel</span><span class="note">Photo de Rennes</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Éric Pérez.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Légende</span><span class="note">Feuillet Soma, en option</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Le feuillet promotionnel du label écossais Soma accompagnant la sortie de « The New Wave » en 1994.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Crédit visuel</span><span class="note">Feuillet Soma, en option</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Document Soma Quality Recordings.</span></button></li>
+</ol>
+</section>
+
+<section aria-labelledby="title-07" id="page-07">
+<h2 id="title-07">Homework (Les débuts de Homework, 2/2)<span class="folio">p. 7</span></h2>
+<div class="page-visuals"><h3>Visuels possibles</h3><ul>
+<li>La pochette de <em>Homework</em>, avec le logo brodé sur le blouson noir.</li>
+<li>Le maxi de « Da Funk » et « Rollin’ &amp; Scratchin’ », ou la photo du bureau dans la pochette intérieure de <em>Homework</em>.</li>
+<li>Une image du clip « Da Funk » où l’on voit l’homme-chien avec son poste de radio.</li>
+</ul></div>
+<ol>
+<li class="block"><div class="label"><span class="badge">Intertitre</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Produit à la maison, loué à une major</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Au lendemain des Trans Musicales, les propositions de contrats s’accumulent. Mais les deux vingtenaires sont conseillés par le père de Thomas, Daniel Vangarde, ancien producteur des années 1970 qui connaît bien le fonctionnement des maisons de disques. Plutôt que de signer un contrat classique où l’artiste cède ses enregistrements contre une avance, ils créent leur propre structure, Daft Trax. Lorsqu’ils s’engagent avec Virgin en 1996, ils restent propriétaires de leurs bandes et se contentent de les louer au label pour la distribution et la promotion.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Cette indépendance leur permet de terminer leur disque exactement comme ils l’ont commencé : chez eux, sans pression extérieure. Homework n’est pas enregistré dans un grand studio, mais toujours dans la chambre de la rue de la Tour-des-Dames. Au départ, le duo ne cherche même pas à composer un album. Il accumule simplement les morceaux jusqu’à avoir de quoi remplir les quatre faces d’un double vinyle. Pour donner une unité sonore à ces titres enregistrés sur près de deux ans, ils font passer toutes leurs machines dans un petit compresseur bon marché qui écrase le son et fait ressortir les basses. Au milieu du disque, le morceau « Teachers » énumère sur une boucle minimaliste les noms des producteurs de Chicago et de Detroit qu’ils écoutaient chez eux, comme une façon de remercier leurs modèles.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Lorsque Homework sort en janvier 1997, une grande partie du public connaît déjà « Da Funk » grâce à son clip réalisé par l’Américain Spike Jonze. On y suit un chien anthropomorphe à la jambe plâtrée qui déambule dans les rues de New York avec un poste de radio à la main. La musique de club, jusque-là cantonnée aux pistes de danse nocturnes, trouve soudain sa place à la télévision en pleine journée.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Légende</span><span class="note">Pochette</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Le logo brodé sur un blouson de satin noir pour la pochette de Homework, paru chez Virgin en janvier 1997.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Légende</span><span class="note">Maxi vinyle, en option</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Le maxi original réunissant « Da Funk » et « Rollin’ &amp; Scratchin’ » chez Soma en 1995.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Légende</span><span class="note">Clip Da Funk, en option</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Charles, le personnage du clip de « Da Funk » tourné à New York par Spike Jonze en 1996.</span></button></li>
+</ol>
+</section>
+
+<section aria-labelledby="title-08" id="page-08">
+<h2 id="title-08">Quarante hublots et deux nuits blanches<span class="folio">p. 8</span></h2>
+<div class="page-visuals"><h3>Visuels possibles</h3><ul><li>Des photos des coulisses du tournage d’« Around the World » : le décor en préparation, les danseurs en répétition ou l’équipe sur le plateau.</li></ul></div>
+<ol>
+<li class="block"><div class="label"><span class="badge">Titre d’article</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Quarante hublots et deux nuits blanches</span></button></li>
+<li class="block"><div class="label"><span class="badge">Chapô</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Pour mettre en scène « Around the World » au printemps 1997, Michel Gondry imagine un décor où chaque danseur suit un instrument de musique. Un chantier technique qui a demandé quarante-huit heures de câblage ininterrompu avant le tournage.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Après le film de rue de Spike Jonze pour « Da Funk », le duo confie le clip d’« Around the World » à Michel Gondry. Le réalisateur français dessine un plateau circulaire surmonté d’un escalier central, pensé pour rendre visible la construction du morceau. Avec la chorégraphe Bianca Li, il répartit les danseurs en cinq petits groupes qui incarnent chacun une piste sonore : quatre robots avancent sur la voix synthétique, des squelettes suivent les notes de guitare, de grands athlètes en survêtement montent et descendent les marches sur la ligne de basse, des nageuses accompagnent le clavier et des momies marquent le temps de la batterie.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">La principale difficulté du tournage vient du mur du fond, percé de quarante grands cercles lumineux qui doivent changer de couleur en rythme avec la musique. En 1997, les éclairages à LED programmables n’existent pas encore sur les plateaux. Le chef opérateur Alex Lamarque et son équipe doivent installer trois projecteurs équipés de filtres rouge, vert et bleu derrière chaque ouverture, en veillant à ce que la lumière ne déborde pas sur le cercle voisin. Au total, il faut réunir cent vingt lampes. Le loueur de matériel n’ayant pas assez d’exemplaires du même modèle, les électriciens doivent compléter avec d’autres projecteurs et reprendre tous les réglages à la main.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Pour synchroniser cet éclairage avec la bande-son, le père de Michel Gondry écrit un programme informatique spécifique, tandis que son frère Olivier soude les connexions électriques sur place. Alex Lamarque se souvient d’une préparation épuisante de quarante-huit heures presque sans sommeil avant de pouvoir lancer la caméra. Une fois le système en route, les quarante hublots suivent automatiquement le morceau, ce qui permet aux danseurs d’enchaîner les prises sans jamais perdre le fil de la lumière.</span></button></li>
+</ol>
+</section>
+
+<section aria-labelledby="title-09" id="page-09">
+<h2 id="title-09">Les robots et Discovery<span class="folio">p. 9</span></h2>
+<div class="page-visuals"><h3>Visuels possibles</h3><ul>
+<li>La couverture de <em>The Face</em> de février 2001, photographiée par Luis Sanchis, ou une image de la même séance avec les robots au piano ou dans le magasin de guitares.</li>
+<li>Une photo de la fabrication des casques chez Tony Gardner.</li>
+<li>Une image d’<em>Interstella 5555</em> pour évoquer l’univers de <em>Discovery</em>.</li>
+</ul></div>
+<ol>
+<li class="block"><div class="label"><span class="badge">Intertitre</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Des costumes de danseurs aux casques sur mesure</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">En 1997, les quatre robots qui marchent sur le plateau d’« Around the World » ne sont que des danseurs engagés pour le clip. Pendant toute la promotion de Homework, Thomas Bangalter et Guy-Manuel de Homem-Christo posent encore devant les photographes avec des masques de carnaval, des cagoules ou du maquillage improvisé au dernier moment. Chez Virgin, Orla Lee-Fisher, qui travaille alors au service marketing, se souvient de la difficulté d’organiser chaque séance photo sans savoir comment le groupe allait cacher son visage ce jour-là.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">La préparation de leur deuxième album, Discovery, met fin à ce bricolage. À partir des dessins réalisés par leurs amis directeurs artistiques Alexandre Courtès et Martin Fougerol, les deux musiciens font fabriquer leurs propres casques à Hollywood par le spécialiste des effets spéciaux Tony Gardner. Les deux modèles — argenté pour Thomas, doré pour Guy-Manuel — sont dévoilés pour la première fois en février 2001 en couverture du magazine britannique The Face.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Intertitre</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Une journée à Los Angeles</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Pour cette première série de photos signée Luis Sanchis, le journaliste Piers Martin accompagne le duo à travers Los Angeles. Plutôt que de poser en studio devant un fond uni, l’équipe met en scène les deux robots dans différents décors de la ville inspirés par l’ambiance très pop et mélodique des morceaux de Discovery : dans les rayons d’un magasin de guitares, à l’arrière d’une voiture ou devant un piano à queue. Sur place, Piers Martin remarque surtout l’encombrement du dispositif : ces premières versions des casques sont très lourdes, bourrées de composants électroniques pour afficher des motifs lumineux sur les visières, et obligent les musiciens à dissimuler les câbles et les batteries dans un sac à dos sous leurs vêtements. Au fil des années et des tournées, les casques seront progressivement allégés et simplifiés.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Légende</span><span class="note">Couverture de The Face</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Première apparition des casques en couverture du mensuel britannique The Face, en février 2001, pour la sortie de Discovery.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Crédit visuel</span><span class="note">Couverture de The Face</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Luis Sanchis / The Face.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Légende</span><span class="note">Photo au piano, en option</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Séance photo à Los Angeles en 2001 : le groupe met en scène l’univers de Discovery à travers la ville.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Crédit visuel</span><span class="note">Photo au piano, en option</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Luis Sanchis.</span></button></li>
+</ol>
+</section>
+
+<section aria-labelledby="title-10" id="page-10">
+<h2 id="title-10">Ce qu’une pyramide a changé<span class="folio">p. 10</span></h2>
+<div class="page-visuals"><h3>Visuels possibles</h3><ul>
+<li>Un plan large du clip live « Harder, Better, Faster, Stronger » à Coney Island en 2007, avec la pyramide et le public.</li>
+<li>La pochette de <em>Human After All</em> ou d’<em>Alive 2007</em>, ou un dessin de la scène.</li>
+</ul></div>
+<ol>
+<li class="block"><div class="label"><span class="badge">Titre d’article</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Ce qu’une pyramide a changé</span></button></li>
+<li class="block"><div class="label"><span class="badge">Chapô</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">À sa sortie en mars 2005, l’album Human After All déçoit une grande partie de la critique qui lui reproche ses répétitions et sa froideur. Un an plus tard, au festival de Coachella, ces mêmes morceaux prennent une tout autre dimension sur scène.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Enregistré en six semaines seulement à Paris, Human After All tranche brutalement avec la richesse mélodique de Discovery. Les titres reposent sur des boucles de guitares électriques et de boîtes à rythmes très sèches qui tournent sans véritable refrain. Dans un entretien accordé au magazine américain PAPER, leur ancien manager Pedro Winter ne cache pas que l’accueil fut glacial à la sortie du disque. Mais il se souvient aussi des nombreux coups de téléphone reçus un an plus tard, au lendemain du 29 avril 2006, de la part de ceux qui venaient de voir le groupe au festival californien de Coachella et tenaient à revenir sur leur jugement.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Ce soir-là, pour leur premier concert depuis près de neuf ans, les deux musiciens apparaissent installés en hauteur au milieu d’une grande pyramide métallique couverte d’écrans et de projecteurs. La structure donne enfin un point de repère visuel spectaculaire à un concert de musique électronique, visible de très loin par des dizaines de milliers de spectateurs. Comme l’expliquera Thomas Bangalter à PAPER, ce décor monumental n’avait été conçu au départ que pour deux ou trois festivals d’été. Devant l’ampleur des réactions, le groupe décide de prolonger la tournée sur près de deux ans à travers le monde.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Au-delà de l’éclairage, le spectacle transforme surtout l’écoute de leurs disques. Au lieu de jouer leurs titres les uns après les autres, les deux musiciens les mélangent en direct : la voix découpée de « Harder, Better, Faster, Stronger » vient se poser sur la basse d’« Around the World », tandis que « One More Time » croise « Aerodynamic ». Les morceaux arides de Human After All, qui semblaient tourner à vide dans un salon, trouvent soudain leur place naturelle au milieu de cet assemblage.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Légende</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">La pyramide en plein air à Coney Island (New York, août 2007), plan large tiré du clip monté par Olivier Gondry.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Crédit visuel</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Image extraite du clip live officiel.</span></button></li>
+</ol>
+</section>
+
+<section aria-labelledby="title-11" id="page-11">
+<h2 id="title-11">250 caméras dans le public<span class="folio">p. 11</span></h2>
+<div class="page-visuals"><h3>Visuels possibles</h3><ul>
+<li>Un plan du concert de Coney Island filmé depuis le public.</li>
+<li>La photo de Nicole Blommers à Paris-Bercy, le 14 juin 2007.</li>
+<li>Quelques captures du clip côte à côte pour montrer les différents points de vue.</li>
+</ul></div>
+<ol>
+<li class="block"><div class="label"><span class="badge">Intertitre</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Deux cent cinquante caméras dans le public</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">En août 2007, lors de l’étape new-yorkaise de la tournée à Coney Island, le groupe cherche un moyen de filmer son spectacle sans recourir aux caméras professionnelles habituelles, souvent placées loin de la fosse. Sur le modèle d’une expérience tentée par les Beastie Boys l’année précédente, la production prête environ 250 petites caméras numériques aux spectateurs répartis dans le public.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Toutes les bandes enregistrées ce soir-là sont confiées à Olivier Gondry — celui-là même qui avait soudé les câbles électriques du décor d’« Around the World » dix ans plus tôt — pour monter le clip live de « Harder, Better, Faster, Stronger ». D’une coupe à l’autre, la pyramide reste le point central au fond de l’image, mais la distance, l’angle de vue et les silhouettes des voisins changent constamment. Le montage restitue ainsi le concert tel qu’il était réellement perçu depuis la foule, loin de la perfection lisse d’une captation télévisée.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Si Coney Island a fourni les images de cette tournée, c’est en revanche le concert donné le 14 juin 2007 au Palais Omnisports de Paris-Bercy qui a été retenu pour graver l’album officiel Alive 2007. Ces deux enregistrements complémentaires — le son de Paris et les images amateurs de New York — restent les derniers témoignages scéniques du duo, qui n’a plus redonné de concert par la suite.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Légende</span><span class="note">Photogramme de Coney Island</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Autre angle de vue pris depuis la foule pendant le concert de Coney Island en 2007.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Crédit visuel</span><span class="note">Photogramme de Coney Island</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Image extraite du clip live monté par Olivier Gondry.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Légende</span><span class="note">Photo de Bercy</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Le concert de Paris-Bercy, le 14 juin 2007, dont l’enregistrement sonore a donné naissance à l’album Alive 2007.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Crédit visuel</span><span class="note">Photo de Bercy</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Nicole Blommers, CC BY 2.0.</span></button></li>
+</ol>
+</section>
+
+<section aria-labelledby="title-12" id="page-12">
+<h2 id="title-12">Pharrell Williams<span class="folio">p. 12</span></h2>
+<div class="page-visuals"><h3>Visuels possibles</h3><ul>
+<li>Une ou deux images de la première écoute de Pharrell Williams dans <em>Memory Tapes</em>.</li>
+<li>Une image de la vidéo promotionnelle de « Get Lucky » avec Pharrell, Nile Rodgers et le duo, ou la pochette de <em>Random Access Memories</em>.</li>
+</ul></div>
+<ol>
+<li class="block"><div class="label"><span class="badge">Titre d’article</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Pharrell pensait enregistrer un brouillon</span></button></li>
+<li class="block"><div class="label"><span class="badge">Chapô</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">De passage à Paris entre deux avions, Pharrell Williams enregistre deux chansons en quarante-huit heures pour le quatrième album du duo. Fatigué par le voyage, le chanteur américain est alors persuadé qu’un autre interprète viendra refaire ses prises au propre.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Pour préparer Random Access Memories, qui paraît au printemps 2013, Thomas Bangalter et Guy-Manuel de Homem-Christo changent complètement de méthode de travail : ils délaissent les boîtes à rythmes et les ordinateurs pour enregistrer de vrais musiciens en studio, entre Paris, New York et Los Angeles. C’est au cours de ces sessions parisiennes qu’ils invitent Pharrell Williams à venir écouter leurs nouvelles maquettes. Dans un entretien accordé au magazine GQ, le producteur américain garde un souvenir assez flou de ce séjour très court. Il arrive à Paris épuisé par le décalage horaire. Pour l’aider à tenir le coup en studio, l’équipe lui donne un comprimé de Guronsan. Il enregistre un premier titre, revient le lendemain pour un second, puis reprend aussitôt l’avion. Lorsque son entourage lui demande à son retour comment se sont passées les séances, il invoque le secret demandé par le groupe, tout en avouant qu’il a oublié une bonne partie des détails.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Surtout, Pharrell Williams pense à ce moment-là n’avoir posé qu’une « voix de démonstration », une simple piste de travail destinée à indiquer la mélodie avant qu’un chanteur définitif ne vienne la réenregistrer. En 2023, à l’occasion des dix ans du disque, la série documentaire Memory Tapes est revenue sur ce malentendu en dévoilant les images tournées en studio à l’époque.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Sur cette archive vidéo, on voit Pharrell Williams écouter les morceaux terminés pour la toute première fois. Il découvre alors que sa voix a été conservée telle quelle sur « Get Lucky » ainsi que sur « Lose Yourself to Dance », désormais accompagnée par la guitare rythmique de Nile Rodgers. Ce qu’il prenait pour une ébauche jetable allait devenir quelques mois plus tard le plus grand succès commercial de l’album.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Légende</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Pharrell Williams écoutant en studio la version définitive des morceaux sur lesquels il a chanté. Images d’époque publiées dans la série Memory Tapes en 2023.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Crédit visuel</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Memory Tapes, Daft Punk.</span></button></li>
+</ol>
+</section>
+
+<section aria-labelledby="title-13" id="page-13">
+<h2 id="title-13">Giorgio Moroder<span class="folio">p. 13</span></h2>
+<div class="page-visuals"><h3>Visuels possibles</h3><ul>
+<li>Un portrait de Giorgio Moroder dans <em>The Collaborators</em> ou un dessin des trois générations de micros qu’il évoque.</li>
+<li>Une photo de bande magnétique ou de la console des studios Henson.</li>
+</ul></div>
+<ol>
+<li class="block"><div class="label"><span class="badge">Intertitre</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Trois micros pour raconter une vie</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Ce souci du détail en studio se retrouve tout au long de l’enregistrement de Random Access Memories. Pour rendre hommage aux artisans de la musique de danse des années 1970, le duo convie également le producteur italien Giorgio Moroder, célèbre pour avoir composé les grands succès électroniques de Donna Summer comme « I Feel Love ». Mais au lieu de lui demander d’écrire une mélodie, ils l’installent dans une cabine d’enregistrement pour qu’il raconte ses souvenirs de jeunesse. En entrant dans la pièce, Moroder s’étonne de voir trois microphones installés devant lui et demande pourquoi on en a préparé autant.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Comme il l’a raconté au journal britannique The Independent, les techniciens lui expliquent que chaque appareil a été choisi en fonction de la période de sa vie qu’il va évoquer : un microphone des années 1960 enregistrera le récit de ses débuts, un modèle des années 1970 prendra le relais lorsqu’il parlera de sa période disco à Munich, et un modèle contemporain captera ses réflexions sur l’avenir de la musique. Lorsque Moroder demande qui pourra bien entendre une telle nuance sur le disque, l’ingénieur du son lui répond simplement que personne ne la remarquera, mais que Thomas Bangalter, derrière la vitre, saura quel micro a été utilisé.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Sur l’album, cet entretien parlé sert de fil conducteur à « Giorgio by Moroder », un long morceau de neuf minutes où le musicien italien raconte ses années d’apprentissage par-dessus le battement d’un métronome, avant de prononcer son nom et de laisser place aux synthétiseurs puis à un orchestre complet. L’anecdote des trois micros n’est mentionnée nulle part sur la pochette du disque ; c’est Moroder lui-même qui l’a révélée plus tard, amusé par le perfectionnisme de ses hôtes.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Légende</span><span class="note">Portrait</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Giorgio Moroder revenant sur sa participation à l’album lors de la série d’entretiens « The Collaborators » en 2013.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Légende</span><span class="note">Dessin de micros</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Trois générations de microphones alignées en cabine pour suivre les époques du récit de Giorgio Moroder. Illustration de principe.</span></button></li>
+</ol>
+</section>
+
+<section aria-labelledby="title-14" id="page-14">
+<h2 id="title-14">Le sample de « Fresh »<span class="folio">p. 14</span></h2>
+<div class="page-visuals"><h3>Visuels possibles</h3><ul>
+<li>La pochette ou l’étiquette du disque « If You Leave Me Now » de Viola Wills.</li>
+<li>Un schéma qui montre où l’extrait apparaît dans le disque de Viola Wills et comment il se répète dans « Fresh ».</li>
+<li>Une photo ou un dessin d’un échantillonneur, ou les pochettes d’Edwin Birdsong et d’Eddie Johns cités dans l’article.</li>
+</ul></div>
+<ol>
+<li class="block"><div class="label"><span class="badge">Titre d’article</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Vingt ans pour retrouver deux secondes</span></button></li>
+<li class="block"><div class="label"><span class="badge">Chapô</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Sur « Fresh », paru sur Homework en 1997, une courte boucle musicale tourne en continu sous un bruitage de vagues. Il a fallu attendre l’été 2017 pour qu’un internaute retrouve par hasard le disque de 1981 d’où provenait cet extrait.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">À l’époque de ses deux premiers albums, Daft Punk compose l’essentiel de sa musique grâce à la technique du sample (l’échantillonnage), qui consiste à prélever un court passage sonore sur un disque existant pour construire un nouveau morceau. Si les emprunts les plus connus — comme ceux d’Edwin Birdsong sur « Harder, Better, Faster, Stronger » ou d’Eddie Johns sur « One More Time » — ont été rapidement identifiés, l’origine de certains découpages très courts est restée introuvable pendant des années. C’était notamment le cas de la mélodie de guitare et de flûte que l’on entend sur « Fresh » (1997).</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">La réponse n’a été découverte que vingt ans plus tard, en août 2017, par un internaute qui écoutait de vieux vinyles pour chercher lui-même des sons à utiliser. En posant l’aiguille sur une reprise disco de la chanson « If You Leave Me Now » (du groupe Chicago), enregistrée en 1981 par la chanteuse américaine Viola Wills, il reconnaît immédiatement le passage à la 33e seconde de l’introduction. L’information, aussitôt partagée sur le forum Reddit puis relayée par Tsugi, met fin à vingt ans de recherches chez les amateurs du groupe.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">En écoutant les deux enregistrements côte à côte, on comprend précisément le travail d’assemblage réalisé en studio. Chez Viola Wills, ces accords ne durent même pas deux secondes au milieu d’une introduction orchestrale. Pour créer « Fresh », le duo a isolé ce minuscule fragment, l’a légèrement ralenti et l’a répété en boucle d’un bout à l’autre du morceau en y ajoutant le bruit du ressac sur une plage.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Légende</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Le disque de Viola Wills, « If You Leave Me Now » (1981), dont deux secondes d’introduction ont été réutilisées pour construire le morceau « Fresh » sur Homework.</span></button></li>
+</ol>
+</section>
+
+<section aria-labelledby="title-15" id="page-15">
+<h2 id="title-15">À écouter<span class="folio">p. 15</span></h2>
+<div class="page-visuals"><h3>Visuels possibles</h3><ul>
+<li>Les pochettes des singles ou des pictogrammes pour accompagner les notices.</li>
+</ul><p>Ajoutez un lien ou un QR code par notice. Pour « Harder, Better, Faster, Stronger », prévoyez les versions studio et live.</p></div>
+<ol>
+<li class="block"><div class="label"><span class="badge">Titre de rubrique</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Quatre points de départ</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte courant</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Les morceaux et les vidéos racontés au fil de ces pages offrent quatre portes d’entrée simples pour observer comment le duo assemble le son et l’image.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Titre de notice</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">« Da Funk » (1995) · Du club à la rue</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte de notice</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Commencer par écouter le morceau seul pour repérer son rythme lent et l’entrée du synthétiseur saturé à mi-parcours, puis regarder le clip réalisé par Spike Jonze. La musique ne change pas, mais le fait qu’elle sorte directement du poste de radio porté par l’homme-chien dans les rues de New York transforme complètement l’ambiance du titre.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Titre de notice</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">« Around the World » (1997) · Lire le mixage à l’image</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte de notice</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Lancer le clip de Michel Gondry en choisissant de ne suivre des yeux qu’un seul groupe de danseurs du début à la fin. En fixant uniquement les robots, on suit la piste de voix ; en regardant les squelettes, on entend le détail de la guitare ; en observant les athlètes sur l’escalier, on isole la ligne de basse.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Titre de notice</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">« Harder, Better, Faster, Stronger » (2001 et 2007) · Le passage à la scène</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte de notice</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Écouter d’abord la version studio parue sur Discovery en 2001, puis enchaîner avec le clip live de 2007 raconté aux pages 10 et 11. En concert, le groupe abandonne la musique funk d’origine et découpe la voix robotique pour la faire rejouer par-dessus la ligne de basse d’« Around the World ».</span></button></li>
+<li class="block"><div class="label"><span class="badge">Titre de notice</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">« Get Lucky » (2013) · La surprise de la première écoute</span></button></li>
+<li class="block"><div class="label"><span class="badge">Texte de notice</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Après avoir réécouté le morceau, regarder l’épisode de la série Memory Tapes (2023) consacré à Pharrell Williams. On y voit sa réaction lorsqu’il découvre pour la première fois que sa voix de maquette a été conservée sur le mixage final aux côtés de la guitare de Nile Rodgers.</span></button></li>
+<li class="block"><div class="label"><span class="badge">Crédits du numéro</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Exercice éditorial B3 Design graphique, Condé Nice, inspiré de la presse musicale. Projet pédagogique non affilié à Tsugi. Textes rédigés à partir des sources réunies dans le carnet de rédaction. Crédits des images à leur emplacement.</span></button></li>
+</ol>
+</section>
+
+<section aria-labelledby="title-16" id="page-16">
+<h2 id="title-16">Quatrième de couverture<span class="folio">p. 16</span></h2>
+<div class="page-visuals"><h3>Visuels possibles</h3><ul>
+<li>Un détail agrandi de votre couverture, une image d’« Epilogue » ou un visuel de votre choix.</li>
+</ul><p>Gardez une place pour les mentions d’édition et le code-barres fictif.</p></div>
+<ol>
+<li class="block"><div class="label"><span class="badge">Mentions d’édition</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">TSUGI · Hors-série Daft Punk</span></button></li>
+<li class="block"><div class="label"><span class="badge">Mentions d’édition</span><span aria-hidden="true" class="feedback"></span></div><button class="copy-block" type="button"><span class="text">Projet pédagogique non affilié à Tsugi · B3 Design graphique · Condé Nice</span></button></li>
+</ol>
+</section>
+</main>
+<p class="sr-only" id="copy-status" role="status"></p>
+<script>
+    const copyStatus = document.querySelector('#copy-status');
+    const resets = new WeakMap();
+
+    async function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {
+          // An offline file or a restricted preview may require the fallback.
+        }
+      }
+      const field = document.createElement('textarea');
+      const focus = document.activeElement;
+      field.value = text;
+      field.readOnly = true;
+      field.className = 'sr-only';
+      document.body.append(field);
+      field.select();
+      field.setSelectionRange(0, text.length);
+      try {
+        return document.execCommand('copy');
+      } catch {
+        return false;
+      } finally {
+        field.remove();
+        focus?.focus({ preventScroll: true });
+      }
+    }
+
+    document.querySelector('main').addEventListener('click', async event => {
+      const button = event.target.closest('.copy-block');
+      if (!button) return;
+      const block = button.closest('.block');
+      const text = block.querySelector('.text');
+      const style = block.querySelector('.badge').textContent;
+      const feedback = block.querySelector('.feedback');
+
+      clearTimeout(resets.get(button));
+      copyStatus.textContent = '';
+      if (await copyText(text.textContent)) {
+        feedback.textContent = 'Copié';
+        copyStatus.textContent = style + ' copié.';
+      } else {
+        const range = document.createRange();
+        range.selectNodeContents(text);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        feedback.textContent = 'Ctrl+C ou Cmd+C';
+        copyStatus.textContent = 'Texte sélectionné. Appuyez sur Ctrl+C ou Cmd+C.';
+      }
+      resets.set(button, setTimeout(() => {
+        feedback.textContent = '';
+      }, 2000));
+    });
+  </script>
+</body>
+</html>
